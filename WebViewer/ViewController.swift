@@ -34,12 +34,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        if let urlString = textURL.text {
-            let url = NSURL(string: urlString)
-            let request = NSURLRequest(URL: url!)
-            webView.loadRequest(request)
+        if !checkEmptynessFor(textURL) {
+            let validation = validateURLByString(textURL.text)
+            if validation {
+                let url = NSURL(string: textURL.text!)
+                let request = NSURLRequest(URL: url!)
+                webView.loadRequest(request)
+            } else {
+                let alert = UIAlertController.init(title: "Invalid URL", message: "Enter a valid URL.", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alert.addAction(action)
+                presentViewController(alert, animated: true, completion: nil)
+            }
         }
-        textURL.resignFirstResponder()
+        
+            textURL.resignFirstResponder()
         return true
         
     }
@@ -51,7 +60,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let text = textField.text {
             if text.isEmpty {
                 let alert = UIAlertController.init(title: "URL Field Empty", message: "Please Enter a URL.", preferredStyle: .Alert)
-                alert.presentViewController(self, animated: true, completion: nil)
+                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alert.addAction(action)
+                presentViewController(alert, animated: true, completion: nil)
                 return true
             }
         }
@@ -67,6 +78,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         return false
     }
-    
 }
 

@@ -35,12 +35,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         if !checkEmptynessFor(textURL) {
+            // if not empty, check the string for a valid URL
             let validation = validateURLByString(textURL.text)
             if validation {
                 let url = NSURL(string: textURL.text!)
                 let request = NSURLRequest(URL: url!)
+                
+                // load the page in the webView
                 webView.loadRequest(request)
             } else {
+                // display an alert asking for a valid URL.
+                
                 let alert = UIAlertController.init(title: "Invalid URL", message: "Enter a valid URL.", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alert.addAction(action)
@@ -48,13 +53,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-            textURL.resignFirstResponder()
+        textURL.resignFirstResponder()
         return true
         
     }
     
     // MARK - Methods
     
+    /**
+        This method checks whether a text field is empty and shows a message if the string is empty.
+        - parameters: 
+            - (textField UITextField)
+        - returns: Bool
+ 
+ 
+    */
     func checkEmptynessFor(textField: UITextField) -> Bool {
         
         if let text = textField.text {
@@ -68,6 +81,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         return false
     }
+    
+    /**
+     This method checks if an URL is valid. You can use this method to check whether or not the string in the textField is valid or not.
+     - parameters:
+        - (string String)
+     - returns: Bool
+     
+     
+     */
     
     func validateURLByString(string: String?) -> Bool {
         

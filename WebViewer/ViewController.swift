@@ -35,16 +35,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         if let urlString = textURL.text {
-        
             let url = NSURL(string: urlString)
             let request = NSURLRequest(URL: url!)
             webView.loadRequest(request)
-        } else {
-            print("Invalid URL")
         }
         textURL.resignFirstResponder()
         return true
         
+    }
+    
+    // MARK - Methods
+    
+    func checkEmptynessFor(textField: UITextField) -> Bool {
+        
+        if let text = textField.text {
+            if text.isEmpty {
+                let alert = UIAlertController.init(title: "URL Field Empty", message: "Please Enter a URL.", preferredStyle: .Alert)
+                alert.presentViewController(self, animated: true, completion: nil)
+                return true
+            }
+        }
+        return false
     }
 }
 

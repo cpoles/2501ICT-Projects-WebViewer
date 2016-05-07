@@ -13,7 +13,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textURL: UITextField!
     
-    
     @IBOutlet weak var webView: UIWebView!
     
     
@@ -34,6 +33,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if let urlString = textURL.text {
+        
+            let url = NSURL(string: urlString)
+            let request = NSURLRequest(URL: url!)
+            webView.loadRequest(request)
+        } else {
+            print("Invalid URL")
+        }
         textURL.resignFirstResponder()
         return true
         

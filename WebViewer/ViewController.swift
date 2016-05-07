@@ -20,7 +20,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // set this viewcontroller as delegate of the textfield.
+        textURL.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,8 +34,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.textURL.resignFirstResponder()
+        textURL.resignFirstResponder()
         return true
+        
     }
 }
 

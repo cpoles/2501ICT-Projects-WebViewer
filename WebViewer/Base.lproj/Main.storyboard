@@ -22,14 +22,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCl-vK-KRH">
+                                <rect key="frame" x="0.0" y="58" width="600" height="542"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kCl-vK-KRH" firstAttribute="top" secondItem="ANn-cm-LiW" secondAttribute="bottom" constant="8" symbolic="YES" id="2pN-CQ-v3K"/>
+                            <constraint firstItem="kCl-vK-KRH" firstAttribute="trailing" secondItem="ANn-cm-LiW" secondAttribute="trailing" id="8Ae-As-og6"/>
                             <constraint firstAttribute="trailing" secondItem="ANn-cm-LiW" secondAttribute="trailing" id="Rrw-nQ-qqw"/>
                             <constraint firstItem="ANn-cm-LiW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="VZy-EG-cFw"/>
                             <constraint firstItem="ANn-cm-LiW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aQ1-11-xk5"/>
+                            <constraint firstItem="kCl-vK-KRH" firstAttribute="leading" secondItem="ANn-cm-LiW" secondAttribute="leading" id="qUp-TQ-oQa"/>
+                            <constraint firstItem="kCl-vK-KRH" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ret-We-7ki"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textURL" destination="ANn-cm-LiW" id="zLp-YC-zMg"/>
+                        <outlet property="webView" destination="kCl-vK-KRH" id="vPS-H2-oHc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

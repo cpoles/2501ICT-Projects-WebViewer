@@ -9,6 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var textURL: UITextField!
+    
+    
+    @IBOutlet weak var webView: UIWebView!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

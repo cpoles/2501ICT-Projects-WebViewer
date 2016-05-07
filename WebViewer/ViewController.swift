@@ -57,5 +57,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         return false
     }
+    
+    func validateURLByString(string: String?) -> Bool {
+        
+        if let urlString = string {
+            if let url = NSURL(string: urlString) {
+                return UIApplication.sharedApplication().canOpenURL(url)
+            }
+        }
+        return false
+    }
+    
 }
 

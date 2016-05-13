@@ -34,7 +34,7 @@ class WebViewerUITests: XCTestCase {
         runLoop.runUntilDate(d)
     }
     
-    func testExample() {
+    func testEmptyURL() {
         
         let app = XCUIApplication()
         wait()
@@ -49,6 +49,18 @@ class WebViewerUITests: XCTestCase {
         
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testWrongURL() {
+        let app = XCUIApplication()
+        wait()
+        let textField = app.textFields["Enter URL"]
+        textField.tap()
+        wait()
+        app.typeText("yo\r")
+        wait()
+        let okButton = app.alerts["Invalid URL"].collectionViews.buttons["OK"]
+        okButton.tap()
     }
     
 }

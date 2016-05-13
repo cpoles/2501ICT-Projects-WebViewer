@@ -28,7 +28,25 @@ class WebViewerUITests: XCTestCase {
         super.tearDown()
     }
     
+    func wait(delay: NSTimeInterval = 2) {
+        let runLoop = NSRunLoop.mainRunLoop()
+        let d = NSDate(timeIntervalSinceNow: delay)
+        runLoop.runUntilDate(d)
+    }
+    
     func testExample() {
+        
+        let app = XCUIApplication()
+        wait()
+        let enterUrlTextField = app.textFields["Enter URL"]
+        enterUrlTextField.tap()
+        wait()
+        app.typeText("\r")
+        wait()
+        app.alerts["URL Field Empty"].collectionViews.buttons["OK"].tap()
+        wait()
+        enterUrlTextField.tap()
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

@@ -65,8 +65,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         - parameters: 
             - (textField UITextField)
         - returns: Bool
- 
- 
     */
     func checkEmptynessFor(textField: UITextField) -> Bool {
         
@@ -87,8 +85,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
      - parameters:
         - (string String)
      - returns: Bool
-     
-     
      */
     
     func validateURLByString(string: String?) -> Bool {
